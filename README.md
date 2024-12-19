@@ -1,4 +1,4 @@
-# Gesture Control
+# 3D CAD SPATIAL CONTROL
 
 This project uses MediaPipe and OpenCV to control the mouse cursor and perform zooming gestures through hand movements captured via webcam.
 
