@@ -10,7 +10,7 @@ manipulator.
 
 | Script | What it does |
 |--------|--------------|
-| [`src/stark_holo.py`](src/stark_holo.py) | **Holographic manipulator.** Renders a 3D wireframe model over your camera feed and lets you rotate, scale and spin it directly with one hand. Self-contained — no other software needed. Can load your own `.obj` CAD models. |
+| [`src/holographic_control.py`](src/holographic_control.py) | **Holographic control.** Renders a 3D wireframe model over your camera feed and lets you rotate, scale and spin it directly with one hand. Self-contained — no other software needed. Can load your own `.obj` CAD models. |
 | [`src/3d_model_controlV2.py`](src/3d_model_controlV2.py) | Drives the OS mouse from hand gestures (pinch-drag to grab, two hands to zoom) to control a model inside real CAD software. Uses the MediaPipe Tasks API (Python 3.13 compatible). |
 | [`src/3D_model_control.py`](src/3D_model_control.py) | Original prototype (legacy MediaPipe `solutions` API + pyautogui). |
 
@@ -21,7 +21,7 @@ manipulator.
 ├── models/                     # MediaPipe model assets
 │   └── hand_landmarker.task
 ├── src/                        # Application code
-│   ├── stark_holo.py
+│   ├── holographic_control.py
 │   ├── 3d_model_controlV2.py
 │   └── 3D_model_control.py
 ├── tests/
@@ -50,7 +50,7 @@ run out of the box.
 ### Holographic manipulator (recommended)
 
 ```bash
-python src/stark_holo.py
+python src/holographic_control.py
 ```
 
 One hand controls everything:
@@ -67,7 +67,7 @@ Keys: `n` next model · `r` reset · `g` toggle hand overlay · `q` quit
 Load your own CAD model (exported to `.obj`):
 
 ```bash
-python src/stark_holo.py path/to/model.obj
+python src/holographic_control.py path/to/model.obj
 ```
 
 ### Mouse control (drive external CAD software)

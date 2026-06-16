@@ -1,6 +1,6 @@
 """
-S.T.A.R.K. Holographic 3D Manipulator
-=====================================
+Holographic 3D Control
+======================
 Render a 3D model as a hologram over your webcam feed and manipulate it in
 mid-air with your bare hands -- no mouse, no CAD app, just the laptop camera.
 
@@ -17,7 +17,7 @@ KEYS
     g .... toggle hand skeleton overlay
     q .... quit
 
-Load your own CAD model:  python stark_holo.py path\\to\\model.obj
+Load your own CAD model:  python holographic_control.py path\\to\\model.obj
 """
 import cv2
 import numpy as np
@@ -174,7 +174,7 @@ MODELS += [
     ("GEODESIC SPHERE", make_uv_sphere()),
     ("TORUS RING", make_torus()),
     ("ICOSAHEDRON", make_icosahedron()),
-    ("REACTOR CUBE", make_cube()),
+    ("CUBE", make_cube()),
 ]
 
 
@@ -373,7 +373,7 @@ def main():
         last_time = now
 
         panel(frame, 14, 14, 312, 104)
-        text(frame, "S.T.A.R.K.  HOLO-FORGE", (28, 38), 0.6, CYAN, 1)
+        text(frame, "HOLOGRAPHIC 3D CONTROL", (28, 38), 0.6, CYAN, 1)
         text(frame, f"MODEL : {name}", (28, 62), 0.45, AMBER, 1)
         text(frame, f"FPS {fps:4.0f}   SCALE {scale*100:3.0f}%   HANDS {len(hands)}",
              (28, 88), 0.45, WHITE, 1)
@@ -384,7 +384,7 @@ def main():
         text(frame, "[n] model   [r] reset   [g] hands   [q] quit",
              (FRAME_W - 430, FRAME_H - 22), 0.45, CYAN_D, 1)
 
-        cv2.imshow("STARK // Holographic 3D Manipulator", frame)
+        cv2.imshow("Holographic 3D Control", frame)
         key = cv2.waitKey(1) & 0xFF
         if key == ord('q'):
             break

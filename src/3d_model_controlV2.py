@@ -61,7 +61,7 @@ HAND_CONNECTIONS = [
 ]
 FINGERTIPS = [4, 8, 12, 16, 20]
 
-# HUD palette (BGR) — arc-reactor cyan with amber/red accents
+# HUD palette (BGR) — cyan with amber/red accents
 CYAN   = (255, 230, 90)
 CYAN_D = (170, 130, 40)
 AMBER  = (40, 200, 255)
@@ -212,8 +212,8 @@ def panel(img, x1, y1, x2, y2, alpha=0.35):
     cv2.rectangle(img, (x1, y1), (x2, y2), CYAN_D, 1, cv2.LINE_AA)
 
 
-def arc_reactor(img, center, t):
-    """Pulsing arc-reactor emblem."""
+def status_orb(img, center, t):
+    """Pulsing status indicator."""
     x, y = center
     pulse = int(6 + 3 * math.sin(t * 4))
     for r, c in [(18, CYAN_D), (12, CYAN)]:
@@ -277,8 +277,8 @@ while cap.isOpened():
 
     # telemetry panel (top-left)
     panel(frame, 12, 12, 250, 96)
-    arc_reactor(frame, (34, 34), t)
-    hud_text(frame, "S.T.A.R.K. HUD", (58, 30), 0.55, CYAN, 1)
+    status_orb(frame, (34, 34), t)
+    hud_text(frame, "GESTURE CONTROL", (58, 30), 0.55, CYAN, 1)
     hud_text(frame, "// SYSTEM ONLINE", (58, 48), 0.4, AMBER, 1)
     hud_text(frame, f"FPS {fps:4.0f}   HANDS {len(hands_px)}", (24, 78), 0.45, WHITE, 1)
 
@@ -286,7 +286,7 @@ while cap.isOpened():
     panel(frame, 12, FRAME_H - 46, 250, FRAME_H - 12)
     hud_text(frame, f"GESTURE: {current_gesture}", (24, FRAME_H - 24), 0.5, CYAN, 1)
 
-    cv2.imshow("STARK // Gesture Control", frame)
+    cv2.imshow("Gesture Control", frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
